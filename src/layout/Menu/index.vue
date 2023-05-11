@@ -60,7 +60,7 @@ export default defineComponent({
     &.collapse {
       margin-left: 0px;
     }
-    :deep(.el-menu) {
+    :deep() {
       .el-menu-item, .el-submenu {
         background-color: var(--system-menu-background) !important;
       }
