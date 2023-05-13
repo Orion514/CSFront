@@ -17,6 +17,7 @@ import { createNameComponent } from './createNode'
 import Dashboard from './modules/dashboard'
 import Pages from './modules/pages'
 import System from './modules/system'
+import User from './modules/user'
 
 let modules = [
   ...System
@@ -31,6 +32,7 @@ const router = createRouter({
 let asyncRoutes = [
   ...Dashboard,
   ...Pages,
+  ...User
 ]
 // 动态路由的权限新增，供登录后调用
 export function addRoutes() {

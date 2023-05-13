@@ -10,9 +10,8 @@ export default [
           [`list|${pageSize}`]: [{
             'id|+1': 0,
             'name': '@cname',
-            "number|+1": 500,
-            "choose|1": [1, 2, 3, 4],
-            "radio|1": [1, 2, 3]
+            'email': '@email',
+            "role|1": ['admin', 'user'],
           }],
           pager: {
             page: page,
