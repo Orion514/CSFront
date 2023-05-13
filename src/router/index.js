@@ -34,7 +34,7 @@ let asyncRoutes = [
 ]
 // 动态路由的权限新增，供登录后调用
 export function addRoutes() {
-  
+
   // let data = [
   //   {
   //     path: '/echarts',
@@ -65,8 +65,11 @@ export function addRoutes() {
   // })
   // 与后端交互的逻辑处理，处理完后异步添加至页面
   asyncRoutes.forEach(item => {
-    modules.push(item)
-    router.addRoute(item)
+    // 判断是否有权限
+    if (item.meta.roles.indexOf(store.state.user.info.role) !== -1) {
+        modules.push(item)
+        router.addRoute(item)
+    }
   })
 }
 
@@ -96,6 +99,7 @@ const whiteList = ['/login']
 
 router.beforeEach((to, _from, next) => {
   NProgress.start();
+  // 判断是否有token
   if (store.state.user.token || whiteList.indexOf(to.path) !== -1) {
     to.meta.title ? (changeTitle(to.meta.title)) : ""; // 动态title
     next()

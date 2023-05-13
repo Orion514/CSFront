@@ -1,12 +1,12 @@
 const users = [
   { name: 'admin', password: '123456', token: 'admin', info: {
-    name: '系统管理员'
+    name: '系统管理员', role: 'admin'
   }},
   { name: 'editor', password: '123456', token: 'editor', info: {
-    name: '编辑人员'
+    name: '编辑人员', role: 'editor'
   }},
   { name: 'test', password: '123456', token: 'test', info: {
-    name: '测试人员'
+    name: '测试人员', role: 'test'
   }},
 ]
 export default [
@@ -31,7 +31,6 @@ export default [
           msg: '用户名或密码错误'
         };
       }
-      
     }
   },
   {
@@ -43,6 +42,7 @@ export default [
         return user.token === token
       }).info
       if (info) {
+        console.log(info)
         return {
           code: 200,
           data: {
@@ -56,7 +56,7 @@ export default [
           msg: '无访问权限'
         };
       }
-      
+
     }
   },
   {

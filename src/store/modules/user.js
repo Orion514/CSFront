@@ -9,6 +9,9 @@ const state = () => ({
 const getters = {
   token(state) {
     return state.token
+  },
+  info(state) {
+    return state.info
   }
 }
 
@@ -27,8 +30,10 @@ const actions = {
   // login by login.vue
   login({ commit, dispatch }, params) {
     return new Promise((resolve, reject) => {
+      console.log(params)
       loginApi(params)
       .then(res => {
+        console.log(res)
         commit('tokenChange', res.data.token)
         dispatch('getInfo', { token: res.data.token })
         .then(infoRes => {
@@ -40,9 +45,11 @@ const actions = {
   // get user info after user logined
   getInfo({ commit }, params) {
     return new Promise((resolve, reject) => {
+      console.log(params)
       getInfoApi(params)
       .then(res => {
-        commit('infoChange', res.data.info)
+        commit('infoChange', res.data)
+        console.log(res.data)
         resolve(res.data.info)
       })
     })

@@ -5,7 +5,7 @@ const route = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    meta: { title: 'dashboard', icon: 'el-icon-menu' },
+    meta: { title: 'dashboard', icon: 'el-icon-menu' , roles: ['admin','editor'] },
     children: [
       {
         path: 'dashboard',

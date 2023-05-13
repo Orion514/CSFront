@@ -162,7 +162,7 @@ export default defineComponent({
         margin-top: 0;
       }
       .form {
-        
+
       }
     }
   }

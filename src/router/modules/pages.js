@@ -5,23 +5,23 @@ const route = [
     path: '/pages',
     component: Layout,
     redirect: '/pages/crudTable',
-    meta: { title: '页面', icon: 'el-icon-document-copy' },
+    meta: { title: '页面', icon: 'el-icon-document-copy' , roles: ['user'] },
     alwayShow: true,
     children: [
       {
         path: 'crudTable',
         component: createNameComponent(() => import('@/views/main/pages/crudTable/index.vue')),
-        meta: { title: '业务表格', cache: false, roles: ['admin', 'editor'] }
+        meta: { title: '业务表格', cache: false, roles: ['user', 'admin'] }
       },
       {
         path: 'categoryTable',
         component: createNameComponent(() => import('@/views/main/pages/categoryTable/index.vue')),
-        meta: { title: '分类联动表格', cache: true, roles: ['admin'] }
+        meta: { title: '分类联动表格', cache: true, roles: ['user','admin'] }
       },
       {
         path: 'treeTable',
         component: createNameComponent(() => import('@/views/main/pages/treeTable/index.vue')),
-        meta: { title: '树联动表格', cache: true }
+        meta: { title: '树联动表格', cache: true, roles: ['user','admin'] }
       }
     ]
   }
