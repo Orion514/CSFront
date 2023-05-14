@@ -1,13 +1,17 @@
 <template>
   <div class="box">
-    我是首页
+    <tree/>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-export default defineComponent({
+import tree from '@/components/tree/index.vue'
 
+export default defineComponent({
+  components: {
+    tree
+  }
 })
 </script>
 

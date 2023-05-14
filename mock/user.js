@@ -81,4 +81,41 @@ export default [
       };
     }
   },
+  {
+    url: `/mock/user/list`,
+    method: 'post',
+    response: ({ body }) => {
+      const { page, pageSize } = body
+      return {
+        code: 200,
+        data: {
+          [`list|${pageSize}`]: [{
+            'id|+1': 1,
+            'name': '@cname',
+            'email': '@email',
+            "role|1": ['admin', 'user'],
+          }],
+          pager: {
+            page: page,
+            pageSize: pageSize,
+            total: 198
+          }
+        },
+        msg: ''
+      };
+    }
+  },
+  {
+    url: `/mock/user/register`,
+    method: 'post',
+    response: () => {
+      return {
+        code: 200,
+        data: {},
+        msg: 'success'
+      };
+    }
+  }
+
+
 ]

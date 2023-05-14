@@ -30,7 +30,8 @@
             <i class="sfont password-icon" :class="passwordType ? 'system-yanjing-guan': 'system-yanjing'" @click="passwordTypeChange"></i>
           </template>
         </el-input>
-        <el-button type="primary" @click="submit" style="width: 100%;" size="medium">登录</el-button>
+        <el-button type="primary" @click="submit" style="width:48%;" >登录</el-button>
+        <el-button style="width: 48%" @click="doRegister" >注册 </el-button>
       </el-form>
     </div>
   </div>
@@ -43,6 +44,7 @@ import { useStore } from 'vuex'
 import { useRouter, useRoute } from 'vue-router'
 import { addRoutes } from '@/router'
 import { ElMessage } from 'element-plus'
+import md5 from 'js-md5'
 export default defineComponent({
   setup() {
     const store = useStore()
@@ -52,6 +54,12 @@ export default defineComponent({
       name: 'admin',
       password: '123456'
     })
+
+    const doRegister = () => {
+      console.log('doRegister')
+      router.push('/register')
+    }
+
     const passwordType = ref('password')
     const passwordTypeChange = () => {
       passwordType.value === '' ? passwordType.value = 'password' : passwordType.value = ''
@@ -80,7 +88,7 @@ export default defineComponent({
       .then(() => {
         let params = {
           name: form.name,
-          password: form.password
+          password: md5(form.password)
         }
         store.dispatch('user/login', params)
         .then(() => {
@@ -101,7 +109,8 @@ export default defineComponent({
       form,
       passwordType,
       passwordTypeChange,
-      submit
+      submit,
+      doRegister
     }
   }
 })

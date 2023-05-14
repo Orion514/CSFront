@@ -64,6 +64,7 @@ import { getData, del } from '@/api/table'
 import Layer from './layer.vue'
 import { ElMessage } from 'element-plus'
 import { roleData} from "./enum";
+import {getUserList} from "../../../api/user";
 
 export default defineComponent({
   name: 'crudTable',
@@ -117,7 +118,7 @@ export default defineComponent({
         pageSize: page.size,
         ...query
       }
-      getData(params)
+      getUserList(params)
           .then(res => {
             let data = res.data.list
             if (Array.isArray(data)) {

@@ -32,6 +32,12 @@ const route = [
     meta: { title: '登录', hideTabs: true }
   },
   {
+    path: '/register',
+    component: createNameComponent(() => import('@/views/system/register.vue')),
+    hideMenu: true,
+    meta:{ title: '注册', hideTabs: true }
+  },
+  {
     // 找不到路由重定向到404页面
     path: "/:pathMatch(.*)",
     component: Layout,
