@@ -48,12 +48,12 @@ function showError(error) {
     store.dispatch('user/loginOut')
   } else {
     ElMessage({
-      message: error.msg || error.message || '服务异常',
+      message: error.msg || '服务异常',
       type: 'error',
       duration: 3 * 1000
     })
   }
-  
+
 }
 
 export default service

@@ -136,22 +136,7 @@ export default defineComponent({
                       showClose: true,
                       duration: 1000
                     })
-                  } else {
-                    ElMessage.error({
-                      message: res.msg,
-                      type: 'error',
-                      showClose: true,
-                      duration: 1000
-                    })
                   }
-                })
-                .catch(err => {
-                  ElMessage.error({
-                    message: err,
-                    type: 'error',
-                    showClose: true,
-                    duration: 1000
-                  })
                 })
           })
     }
